@@ -1,6 +1,17 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+
+
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+
+  --primary: 222.2 47.4% 11.2%;
+  --primary-foreground: 210 40% 98%;
+
+  --ring: 222.2 84% 4.9%;
+  --radius: 0.5rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -44,7 +55,84 @@ a {
   .imgLight {
     display: none;
   }
+
   .imgDark {
     display: unset;
   }
+}
+
+.center-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  height: 100vh;
+}
+
+.ui-input {
+  height: 40px;
+  width: 220px;
+
+  padding: 0 12px;
+
+  font-size: 14px;
+  line-height: 20px;
+
+  border-radius: var(--radius);
+  border: 1px solid hsl(var(--input));
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.ui-input::placeholder {
+  color: hsl(215 20% 65%);
+}
+
+.ui-input:focus {
+  outline: none;
+  border-color: hsl(var(--ring));
+  box-shadow: 0 0 0 2px hsl(var(--ring) / 0.3);
+}
+
+.ui-input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.ui-button {
+  height: 40px;
+  padding: 0 16px;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+
+  cursor: pointer;
+  transition: background-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.ui-button:hover {
+  background-color: hsl(var(--primary) / 0.9);
+}
+
+.ui-button:active {
+  background-color: hsl(var(--primary) / 0.85);
+}
+
+.ui-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px hsl(var(--ring) / 0.4);
+}
+
+.ui-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
